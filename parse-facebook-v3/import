@@ -37,12 +37,7 @@ for zip in ${zip_dir}/*.zip; do
         fi
 
         git commit -m "import ${version}"
-        if [ "$?" ] ; then
-            git tag "$version" -f
-        else
-            git tag -d "$version"
-            git push origin :"$version"
-        fi
+        git tag "$version" -f
         git push origin "$version" -f
 
     popd
